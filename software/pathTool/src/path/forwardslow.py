@@ -4,7 +4,7 @@ from collections import deque
 from lib import semicircle2_generator
 
 g_steps = 20
-y_radius = 10
+y_radius = 1
 z_radius = 30
 x_radius = 10
 
