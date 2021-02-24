@@ -9,6 +9,7 @@ namespace hexapod {
 
         MOVEMENT_FORWARD,
         MOVEMENT_FORWARDFAST,
+        MOVEMENT_FORWARDSLOW,
         MOVEMENT_BACKWARD,
         MOVEMENT_TURNLEFT,
         MOVEMENT_TURNRIGHT,
