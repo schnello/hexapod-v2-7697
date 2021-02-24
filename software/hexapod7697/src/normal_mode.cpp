@@ -13,14 +13,14 @@
 #define REACT_DELAY hexapod::config::movementInterval
 
 static Button buttonForward(hexapod::MOVEMENT_FORWARD, "Forward", 1, 3, 1, 1, RC_BLUE);
-static Button buttonRun(hexapod::MOVEMENT_FORWARDFAST, "Run", 1, 2, 1, 1, RC_ORANGE);
-static Button buttonSlow(hexapod::MOVEMENT_FORWARDSLOW, "Slow", 1, 1, 1, 1, RC_ORANGE);
+static Button buttonRun(hexapod::MOVEMENT_FORWARDFAST, "Run", 1, 2, 1, 1, RC_GREY);
+static Button buttonSlow(hexapod::MOVEMENT_FORWARDSLOW, "Slow", 0, 2, 1, 1, RC_GREY);
 static Button buttonBackward(hexapod::MOVEMENT_BACKWARD, "Backward", 1, 4, 1, 1, RC_BLUE);
 static Button buttonTL(hexapod::MOVEMENT_TURNLEFT, "TurnLeft", 0, 3, 1, 1, RC_GREEN);
 static Button buttonTR(hexapod::MOVEMENT_TURNRIGHT, "TurnRight", 2, 3, 1, 1, RC_GREEN);
 static Button buttonSL(hexapod::MOVEMENT_SHIFTLEFT, "ShiftLeft", 0, 4, 1, 1, RC_BLUE);
 static Button buttonSR(hexapod::MOVEMENT_SHIFTRIGHT, "ShiftRight", 2, 4, 1, 1, RC_BLUE);
-static Button buttonClimb(hexapod::MOVEMENT_CLIMB, "Climb", 2, 2, 1, 1, RC_ORANGE);
+static Button buttonClimb(hexapod::MOVEMENT_CLIMB, "Climb", 2, 2, 1, 1, RC_GREY);
 
 static Button buttonRotateX(hexapod::MOVEMENT_ROTATEX, "RotateX", 0, 0, 1, 1, RC_YELLOW);
 static Button buttonRotateY(hexapod::MOVEMENT_ROTATEY, "RotateY", 1, 0, 1, 1, RC_YELLOW);
