@@ -14,7 +14,7 @@
 
 static Button buttonForward(hexapod::MOVEMENT_FORWARD, "Forward", 1, 3, 1, 1, RC_BLUE);
 static Button buttonRun(hexapod::MOVEMENT_FORWARDFAST, "Run", 1, 2, 1, 1, RC_ORANGE);
-static Button buttonRun(hexapod::MOVEMENT_FORWARDSLOW, "Slow", 1, 1, 1, 1, RC_ORANGE);
+static Button buttonSlow(hexapod::MOVEMENT_FORWARDSLOW, "Slow", 1, 1, 1, 1, RC_ORANGE);
 static Button buttonBackward(hexapod::MOVEMENT_BACKWARD, "Backward", 1, 4, 1, 1, RC_BLUE);
 static Button buttonTL(hexapod::MOVEMENT_TURNLEFT, "TurnLeft", 0, 3, 1, 1, RC_GREEN);
 static Button buttonTR(hexapod::MOVEMENT_TURNRIGHT, "TurnRight", 2, 3, 1, 1, RC_GREEN);
@@ -44,7 +44,7 @@ void normal_setup(void) {
     &buttonSL, &buttonSR,
     &buttonRun, &buttonClimb,
     &buttonRotateX, &buttonRotateY, &buttonRotateZ,
-    &buttonTwist, %buttonSlow
+    &buttonTwist, &buttonSlow
   });
   btnGroup.addControls({
     &buttonForward, &buttonBackward,
