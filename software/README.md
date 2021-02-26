@@ -19,7 +19,7 @@ src/hexapod/hal | Hardware Abatraction Layer to running on Linkit 7697 |
 
 #### Normal Mode UI
 
-![normal](files/normal_mode.png)
+![normal](files/normal_mode.jpg)
 
 
 #### Setting (Calibration) Mode UI
