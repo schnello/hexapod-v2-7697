@@ -6,7 +6,6 @@ namespace hexapod {
 
     enum MovementMode {
         MOVEMENT_STANDBY = 0,
-
         MOVEMENT_FORWARD,
         MOVEMENT_FORWARDSLOW,
         MOVEMENT_BACKWARD,

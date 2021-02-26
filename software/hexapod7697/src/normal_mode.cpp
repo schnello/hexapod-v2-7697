@@ -85,6 +85,10 @@ void normal_loop(void) {
   for (auto m = hexapod::MOVEMENT_STANDBY; m < hexapod::MOVEMENT_TOTAL; m++) {
     if (flag & (1<<m)) {
       mode = m;
+      break;
+    }
+  }
+
 if(switchButton.getValue() == 1 ){
 switch (mode) {
   case 1:
@@ -108,9 +112,7 @@ switch (mode) {
 
 }
 }
-      break;
-    }
-  }
+
 
   hexapod::Hexapod.processMovement(mode, REACT_DELAY);
 

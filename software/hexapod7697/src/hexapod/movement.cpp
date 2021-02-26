@@ -8,7 +8,6 @@ namespace hexapod {
 
     extern const MovementTable& standbyTable();
     extern const MovementTable& forwardTable();
-    extern const MovementTable& forwardfastTable();
     extern const MovementTable& forwardslowTable();
     extern const MovementTable& backwardTable();
     extern const MovementTable& backwardslowTable();
@@ -20,6 +19,7 @@ namespace hexapod {
     extern const MovementTable& shiftleftslowTable();
     extern const MovementTable& shiftrightTable();
     extern const MovementTable& shiftrightslowTable();
+    extern const MovementTable& forwardfastTable();
     extern const MovementTable& climbTable();
     extern const MovementTable& rotatexTable();
     extern const MovementTable& rotateyTable();
@@ -29,7 +29,6 @@ namespace hexapod {
     const MovementTable kTable[MOVEMENT_TOTAL] {
         standbyTable(),
         forwardTable(),
-        forwardfastTable(),
         forwardslowTable(),
         backwardTable(),
         backwardslowTable(),
@@ -41,6 +40,7 @@ namespace hexapod {
         shiftleftslowTable(),
         shiftrightTable(),
         shiftrightslowTable(),
+        forwardfastTable(),
         climbTable(),
         rotatexTable(),
         rotateyTable(),
