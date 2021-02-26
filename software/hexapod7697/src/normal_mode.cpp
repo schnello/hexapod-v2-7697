@@ -12,9 +12,9 @@
 
 #define REACT_DELAY hexapod::config::movementInterval
 
+LRemoteSwitch switchButton;
 static Button buttonForward(hexapod::MOVEMENT_FORWARD, "Forward", 1, 3, 1, 1, RC_BLUE);
 static Button buttonRun(hexapod::MOVEMENT_FORWARDFAST, "Run", 1, 2, 1, 1, RC_GREY);
-static Button buttonSlow(hexapod::MOVEMENT_FORWARDSLOW, "Slow", 0, 2, 1, 1, RC_GREY);
 static Button buttonBackward(hexapod::MOVEMENT_BACKWARD, "Backward", 1, 4, 1, 1, RC_BLUE);
 static Button buttonTL(hexapod::MOVEMENT_TURNLEFT, "TurnLeft", 0, 3, 1, 1, RC_GREEN);
 static Button buttonTR(hexapod::MOVEMENT_TURNRIGHT, "TurnRight", 2, 3, 1, 1, RC_GREEN);
@@ -38,13 +38,21 @@ void normal_setup(void) {
   LRemote.setOrientation(RC_PORTRAIT);
   LRemote.setGrid(3, 5);
 
+
+  switchButton.setText("Slow");
+  switchButton.setPos(0, 2);
+  switchButton.setSize(1, 1);
+  switchButton.setColor(RC_BLUE);
+  LRemote.addControl(switchButton);
+
+
   LRemote_addControls({
     &buttonForward, &buttonBackward,
     &buttonTL, &buttonTR,
     &buttonSL, &buttonSR,
     &buttonRun, &buttonClimb,
     &buttonRotateX, &buttonRotateY, &buttonRotateZ,
-    &buttonTwist, &buttonSlow
+    &buttonTwist
   });
   btnGroup.addControls({
     &buttonForward, &buttonBackward,
@@ -52,7 +60,7 @@ void normal_setup(void) {
     &buttonSL, &buttonSR,
     &buttonRun, &buttonClimb,
     &buttonRotateX, &buttonRotateY, &buttonRotateZ,
-    &buttonTwist, &buttonSlow
+    &buttonTwist
   });
 
   LRemote.begin();
@@ -80,6 +88,31 @@ void normal_loop(void) {
       break;
     }
   }
+
+if(switchButton.getValue() == 1 ){
+switch (mode) {
+  case 1:
+    mode++;
+	break;
+  case 3:
+    mode++;
+	break;
+  case 5:
+    mode++;
+	break;
+  case 7:
+    mode++;
+	break;
+  case 9:
+    mode++;
+	break;
+  case 11:
+    mode++;
+	break;
+
+}
+}
+
 
   hexapod::Hexapod.processMovement(mode, REACT_DELAY);
 
