@@ -7,19 +7,24 @@
 namespace hexapod {
 
     extern const MovementTable& standbyTable();
-    extern const MovementTable& forwardTable();
     extern const MovementTable& forwardslowTable();
-    extern const MovementTable& backwardTable();
-    extern const MovementTable& backwardslowTable();
-    extern const MovementTable& turnleftTable();
-    extern const MovementTable& turnleftslowTable();
-    extern const MovementTable& turnrightTable();
-    extern const MovementTable& turnrightslowTable();
-    extern const MovementTable& shiftleftTable();
-    extern const MovementTable& shiftleftslowTable();
-    extern const MovementTable& shiftrightTable();
-    extern const MovementTable& shiftrightslowTable();
+    extern const MovementTable& forwardTable();
     extern const MovementTable& forwardfastTable();
+    extern const MovementTable& backwardslowTable();
+    extern const MovementTable& backwardTable();
+    extern const MovementTable& backwardfastTable();
+    extern const MovementTable& turnleftslowTable();
+    extern const MovementTable& turnleftTable();
+    extern const MovementTable& turnleftfastTable();
+    extern const MovementTable& turnrightslowTable();
+    extern const MovementTable& turnrightTable();
+    extern const MovementTable& turnrightfastTable();
+    extern const MovementTable& shiftleftslowTable();
+    extern const MovementTable& shiftleftTable();
+    extern const MovementTable& shiftleftfastTable();
+    extern const MovementTable& shiftrightslowTable();
+    extern const MovementTable& shiftrightTable();
+    extern const MovementTable& shiftrightfastTable();
     extern const MovementTable& climbTable();
     extern const MovementTable& rotatexTable();
     extern const MovementTable& rotateyTable();
@@ -28,19 +33,24 @@ namespace hexapod {
 
     const MovementTable kTable[MOVEMENT_TOTAL] {
         standbyTable(),
-        forwardTable(),
         forwardslowTable(),
-        backwardTable(),
-        backwardslowTable(),
-        turnleftTable(),
-        turnleftslowTable(),
-        turnrightTable(),
-        turnrightslowTable(),
-        shiftleftTable(),
-        shiftleftslowTable(),
-        shiftrightTable(),
-        shiftrightslowTable(),
+        forwardTable(),
         forwardfastTable(),
+        backwardslowTable(),
+        backwardTable(),
+        backwardfastTable(),
+        turnleftslowTable(),
+        turnleftTable(),
+        turnleftfastTable(),
+        turnrightslowTable(),
+        turnrightTable(),
+        turnrightfastTable(),
+        shiftleftslowTable(),
+        shiftleftTable(),
+        shiftleftfastTable(),
+        shiftrightslowTable(),
+        shiftrightTable(),
+        shiftrightfastTable(),
         climbTable(),
         rotatexTable(),
         rotateyTable(),

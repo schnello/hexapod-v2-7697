@@ -12,15 +12,15 @@
 
 #define REACT_DELAY hexapod::config::movementInterval
 
-LRemoteSwitch switchButton;
+
+LRemoteSlider slider;
 static Button buttonForward(hexapod::MOVEMENT_FORWARD, "Forward", 1, 3, 1, 1, RC_BLUE);
-static Button buttonRun(hexapod::MOVEMENT_FORWARDFAST, "Run", 1, 2, 1, 1, RC_GREY);
 static Button buttonBackward(hexapod::MOVEMENT_BACKWARD, "Backward", 1, 4, 1, 1, RC_BLUE);
 static Button buttonTL(hexapod::MOVEMENT_TURNLEFT, "TurnLeft", 0, 3, 1, 1, RC_GREEN);
 static Button buttonTR(hexapod::MOVEMENT_TURNRIGHT, "TurnRight", 2, 3, 1, 1, RC_GREEN);
 static Button buttonSL(hexapod::MOVEMENT_SHIFTLEFT, "ShiftLeft", 0, 4, 1, 1, RC_BLUE);
 static Button buttonSR(hexapod::MOVEMENT_SHIFTRIGHT, "ShiftRight", 2, 4, 1, 1, RC_BLUE);
-static Button buttonClimb(hexapod::MOVEMENT_CLIMB, "Climb", 2, 2, 1, 1, RC_GREY);
+static Button buttonClimb(hexapod::MOVEMENT_CLIMB, "Climb", 1, 1, 1, 1, RC_GREY);
 
 static Button buttonRotateX(hexapod::MOVEMENT_ROTATEX, "RotateX", 0, 0, 1, 1, RC_YELLOW);
 static Button buttonRotateY(hexapod::MOVEMENT_ROTATEY, "RotateY", 1, 0, 1, 1, RC_YELLOW);
@@ -39,27 +39,29 @@ void normal_setup(void) {
   LRemote.setGrid(3, 5);
 
 
-  switchButton.setText("Slow");
-  switchButton.setPos(0, 2);
-  switchButton.setSize(1, 1);
-  switchButton.setColor(RC_BLUE);
-  LRemote.addControl(switchButton);
+  slider.setText("Slow --- Normal --- Fast");
+  slider.setPos(0, 2);
+  slider.setSize(3, 3);
+  slider.setColor(RC_BLUE);
+  slider.setValueRange(-100, 100, 0);
+  LRemote.addControl(slider);
+
 
 
   LRemote_addControls({
     &buttonForward, &buttonBackward,
     &buttonTL, &buttonTR,
     &buttonSL, &buttonSR,
-    &buttonRun, &buttonClimb,
-    &buttonRotateX, &buttonRotateY, &buttonRotateZ,
+    &buttonClimb, &buttonRotateX,
+    &buttonRotateY, &buttonRotateZ,
     &buttonTwist
   });
   btnGroup.addControls({
     &buttonForward, &buttonBackward,
     &buttonTL, &buttonTR,
     &buttonSL, &buttonSR,
-    &buttonRun, &buttonClimb,
-    &buttonRotateX, &buttonRotateY, &buttonRotateZ,
+    &buttonClimb, &buttonRotateX,
+    &buttonRotateY, &buttonRotateZ,
     &buttonTwist
   });
 
@@ -84,36 +86,70 @@ void normal_loop(void) {
   auto mode = hexapod::MOVEMENT_STANDBY;
   for (auto m = hexapod::MOVEMENT_STANDBY; m < hexapod::MOVEMENT_TOTAL; m++) {
     if (flag & (1<<m)) {
-      mode = m;
+     mode = m;
       break;
     }
   }
 
-if(switchButton.getValue() == 1 ){
+
+if(slider.getValue() < -50 ){
 switch (mode) {
-  case 1:
-    mode++;
-	break;
-  case 3:
-    mode++;
+  case 2:
+	mode--;
 	break;
   case 5:
-    mode++;
+   	mode--;
 	break;
-  case 7:
-    mode++;
+  case 6:
+  	mode--;
 	break;
-  case 9:
-    mode++;
+  case 8:
+    	mode--;
 	break;
   case 11:
-    mode++;
+    	mode--;
+	break;
+  case 14:
+    	mode--;
+	break;
+  case 17:
+    	mode--;
+    	break;
+
+   }
+}
+
+
+
+if(slider.getValue() > 50 ){
+switch (mode) {
+  case 2:
+   	mode++;
+	break;
+  case 5:
+    	mode++;
+	break;
+  case 6:
+    	mode++;
+	break;
+  case 8:
+    	mode++;
+	break;
+  case 11:
+    	mode++;
+	break;
+  case 14:
+    	mode++;
+	break;
+  case 17:
+    	mode++;
 	break;
 
-}
+   }
 }
 
 
+//  Serial.print(mode);
   hexapod::Hexapod.processMovement(mode, REACT_DELAY);
 
   auto spent = millis() - t0;
