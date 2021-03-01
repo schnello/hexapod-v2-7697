@@ -20,7 +20,7 @@ static Button buttonTL(hexapod::MOVEMENT_TURNLEFT, "TurnLeft", 0, 3, 1, 1, RC_GR
 static Button buttonTR(hexapod::MOVEMENT_TURNRIGHT, "TurnRight", 2, 3, 1, 1, RC_GREEN);
 static Button buttonSL(hexapod::MOVEMENT_SHIFTLEFT, "ShiftLeft", 0, 4, 1, 1, RC_BLUE);
 static Button buttonSR(hexapod::MOVEMENT_SHIFTRIGHT, "ShiftRight", 2, 4, 1, 1, RC_BLUE);
-static Button buttonClimb(hexapod::MOVEMENT_CLIMB, "Climb", 1, 1, 1, 1, RC_GREY);
+static Button buttonClimb(hexapod::MOVEMENT_CLIMB, "Climb", 1, 2, 1, 1, RC_ORANGE);
 
 static Button buttonRotateX(hexapod::MOVEMENT_ROTATEX, "RotateX", 0, 0, 1, 1, RC_YELLOW);
 static Button buttonRotateY(hexapod::MOVEMENT_ROTATEY, "RotateY", 1, 0, 1, 1, RC_YELLOW);
@@ -42,8 +42,8 @@ void normal_setup(void) {
   slider.setText("Slow --- Normal --- Fast");
   slider.setPos(0, 2);
   slider.setSize(3, 3);
-  slider.setColor(RC_BLUE);
-  slider.setValueRange(-100, 100, 0);
+  slider.setColor(RC_ORANGE);
+  slider.setValueRange(-1, 1, 0);
   LRemote.addControl(slider);
 
 
@@ -92,7 +92,7 @@ void normal_loop(void) {
   }
 
 
-if(slider.getValue() < -50 ){
+if(slider.getValue() == -1 ){
 switch (mode) {
   case 2:
 	mode--;
@@ -121,7 +121,7 @@ switch (mode) {
 
 
 
-if(slider.getValue() > 50 ){
+if(slider.getValue() == 1 ){
 switch (mode) {
   case 2:
    	mode++;
